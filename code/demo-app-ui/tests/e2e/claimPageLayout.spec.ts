@@ -1,12 +1,8 @@
-import { expect, test } from "@playwright/test";
-import { LoginPage } from "../../pages/loginPage";
+import { expect, test } from "../fixtures/pageFixtures";
 import { loginUsers, users, claimsUIData } from "../../fixtures/testData";
-import { ClaimsPage } from "../../pages/claimsPage";
 
 test.describe("Claim Page Layout Testing", () => {
-  test("Claim Page Layout - Verify UI Elements", async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const claimsPage = new ClaimsPage(page);
+  test("Claim Page Layout - Verify UI Elements", async ({ page, loginPage, claimsPage }) => {
     await loginPage.login(
       users.claimantUser.email,
       users.claimantUser.password,

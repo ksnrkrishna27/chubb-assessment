@@ -10,6 +10,22 @@ A full-stack microservices application demonstrating modern cloud-native pattern
 
 ![Demo App Architecture](ss-demo-app.png)
 
+The main connections are summarized below. The browser uses the Next.js UI, the UI calls the BFF, the BFF validates authentication and coordinates the claims service, and the claims service persists data and publishes events.
+
+```mermaid
+flowchart TD
+    Browser[User / Browser] --> UI[Next.js UI :3001]
+    UI --> BFF[BFF API + WebSocket hub :8090]
+    BFF --> Auth[Keycloak OAuth2/OIDC :8180]
+    BFF --> Claims[Claims Service :8080]
+    Claims --> DB[(PostgreSQL :5432)]
+    Claims --> Redis[(Redis :6379)]
+    Claims --> Kafka[Kafka :9092]
+    DB --> CDC[Debezium CDC :8083]
+    CDC --> Kafka
+    Kafka --> BFF
+```
+
 ### Text Diagram
 
 ```

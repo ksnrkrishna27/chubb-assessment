@@ -133,7 +133,7 @@ The codebase ships with **unit tests** across all three tiers and scaffolding fo
 |-------|-----------|--------|
 | Backend unit tests | JUnit 5, Mockito, AssertJ | Provided — some may need fixing |
 | Frontend unit tests | Vitest, Testing Library | Provided |
-| E2E tests | Playwright | Scaffolded — empty |
+| E2E tests | Playwright | Implemented — UI and API assessment coverage |
 | Contract tests | Pact | Scaffolded — empty |
 | Integration tests | Testcontainers | Scaffolded — empty |
 | Architecture tests | ArchUnit | Provided |

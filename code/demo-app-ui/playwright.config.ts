@@ -14,7 +14,10 @@ if (fs.existsSync(envFile)) {
     if (separator === -1) continue;
 
     const key = trimmedLine.slice(0, separator).trim();
-    const value = trimmedLine.slice(separator + 1).trim().replace(/^['"]|['"]$/g, "");
+    const value = trimmedLine
+      .slice(separator + 1)
+      .trim()
+      .replace(/^['"]|['"]$/g, "");
 
     if (!process.env[key]) process.env[key] = value;
   }
@@ -34,8 +37,8 @@ export default defineConfig({
   use: {
     baseURL: "http://localhost:3001",
     trace: "on-first-retry",
-    video: "retain-on-failure",
-    screenshot: "only-on-failure",
+    video: "on",
+    screenshot: "on",
   },
   projects: [
     {
