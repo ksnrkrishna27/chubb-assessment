@@ -16,7 +16,7 @@ No confirmed product defect was reproduced during the final scoped run. This com
 | Steps to reproduce | Execute the documented Playwright suite using `TESTING_APPROACH.md` entry criteria |
 | Expected result | In-scope scenarios pass and produce documented results |
 | Actual result | Final in-scope execution passed; no product defect reproduced |
-| Evidence | Playwright HTML/JUnit reports and run artifacts under `code/demo-app-ui/playwright-report/` |
+| Evidence | No product-defect evidence applies because no defect was confirmed. The Playwright configuration captures screenshots and videos for every execution; generated artifacts are available under `code/demo-app-ui/playwright-report/` and `code/demo-app-ui/test-results/` after a local run. |
 | Status | Not applicable - no defect raised |
 | Owner | QA assessment |
 | Notes | Setup issues encountered during preparation were resolved and were not application defects. |

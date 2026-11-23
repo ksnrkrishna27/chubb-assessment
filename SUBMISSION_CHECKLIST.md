@@ -8,7 +8,7 @@
 | Test cases | `TEST_CASES.md` | Complete |
 | Playwright UI tests | `code/demo-app-ui/tests/e2e/*.spec.ts` and matching `.md` files | Complete |
 | API tests | `code/demo-app-ui/tests/e2e/submitClaim.api.spec.ts` and `api/claimsApi.ts` | Complete |
-| Defect report | `DEFECT_REPORT.md` | Complete - no confirmed defect found |
+| Defect report | `DEFECT_REPORT.md` | Complete - no confirmed defect found; evidence policy documented |
 
 ## Final verification
 

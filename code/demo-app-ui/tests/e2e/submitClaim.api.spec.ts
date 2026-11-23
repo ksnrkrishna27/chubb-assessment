@@ -5,8 +5,8 @@ import { claimTestData, users } from "../../fixtures/testData";
 test.describe("Claims API", () => {
   test.describe.configure({ mode: "serial" });
 
-  test("submit a new claim through the API", async ({ page }) => {
-    const claimsApi = new ClaimsApi(page.request, page.context());
+  test("submit a new claim through the API", async ({ request }) => {
+    const claimsApi = new ClaimsApi(request);
 
     const loginResponse = await claimsApi.login(
       users.claimantUser.email,
@@ -26,8 +26,8 @@ test.describe("Claims API", () => {
     expect(responseBody.status).toBe("SUBMITTED");
   });
 
-  test("rejects an invalid claim payload", async ({ page }) => {
-    const claimsApi = new ClaimsApi(page.request, page.context());
+  test("rejects an invalid claim payload", async ({ request }) => {
+    const claimsApi = new ClaimsApi(request);
     const loginResponse = await claimsApi.login(
       users.claimantUser.email,
       users.claimantUser.password,
@@ -48,8 +48,8 @@ test.describe("Claims API", () => {
     expect(body).toHaveProperty("detail");
   });
 
-  test("rejects a claim when a required field is missing", async ({ page }) => {
-    const claimsApi = new ClaimsApi(page.request, page.context());
+  test("rejects a claim when a required field is missing", async ({ request }) => {
+    const claimsApi = new ClaimsApi(request);
     const loginResponse = await claimsApi.login(
       users.claimantUser.email,
       users.claimantUser.password,

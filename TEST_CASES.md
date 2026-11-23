@@ -2,6 +2,8 @@
 
 The catalogue uses the assessment format: ID, scenario, preconditions, test data, steps, expected result, type, and automation reference.
 
+Priority is High for authentication, claim creation, lifecycle, and API contract coverage; Medium for layout and logout coverage. The automated cases were previously executed successfully where noted by the repository test history.
+
 | ID | Scenario | Preconditions | Test data | Steps | Expected result | Type | Automation |
 |---|---|---|---|---|---|---|---|
 | TC-001 | Claimant login | Stack healthy | Claimant credentials from `.env` | Submit valid credentials | Redirect to `/claims`; claimant welcome is shown | Positive | `loginTest.spec.ts` |

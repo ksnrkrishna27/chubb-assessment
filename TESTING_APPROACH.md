@@ -17,7 +17,7 @@ The Playwright login suite currently covers:
 - Invalid credentials.
 - Logout after successful login.
 
-The tests use a functional data-driven approach so the same positive-login flow is executed for both user roles. Page actions are kept in `pages/loginPage.ts`, locators are kept in `pages/locators.ts`, and test data is kept in `fixtures/testData.ts`.
+The tests use a functional data-driven approach so the same positive-login flow is executed for both user roles. Page actions are kept in `pages/loginPage.ts`, `pages/claimsPage.ts`, and `pages/adminClaimsPage.ts`; locators are kept in `pages/locators.ts`; shared Page Objects are provided through `tests/fixtures/pageFixtures.ts`; and test data is kept in `fixtures/testData.ts`.
 
 ### Claims UI and lifecycle tests
 
@@ -34,7 +34,7 @@ The Playwright suite also covers:
 
 ### API test coverage
 
-The API suite covers successful claim submission through `POST /api/claims` after claimant authentication. It verifies the `201` response, claim ID, description, amount, and initial `SUBMITTED` status. API request logic is kept in `api/claimsApi.ts`.
+The API suite covers successful claim submission through `POST /api/claims` after claimant authentication. It verifies the `201` response, response schema, claim ID, description, amount, and initial `SUBMITTED` status. It also covers invalid values and a missing required field, verifying HTTP `400` and validation Problem Details. API request logic and schema validation are kept in `api/claimsApi.ts`.
 
 ## Planned work not implemented due to time
 
@@ -44,7 +44,7 @@ The following areas were identified as valuable but were not completed in the av
 - GitHub Actions execution and validation for the repository.
 - Implement a vault-based solution for securely storing credentials.
 - Unauthenticated and role-based access validation.
-- API negative and boundary validation tests.
+- Additional API boundary combinations beyond the implemented invalid and missing-input scenarios.
 - Backend integration and contract tests.
 - Visual regression testing.
 - Load or performance testing.
@@ -63,6 +63,8 @@ Authentication was selected first because a failure there blocks every protected
 - Administrator status transitions and claimant-side status refresh.
 - API claim submission, response contract checks, invalid input, and missing input.
 - Playwright HTML/JUnit results plus screenshot and video evidence.
+
+Playwright is configured to capture a screenshot and video for every test and to publish HTML and JUnit reports under `playwright-report/`.
 
 ### Out of scope
 

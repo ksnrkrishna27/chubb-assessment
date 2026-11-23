@@ -1,8 +1,4 @@
-import {
-  APIRequestContext,
-  APIResponse,
-  BrowserContext,
-} from "@playwright/test";
+import { APIRequestContext, APIResponse } from "@playwright/test";
 
 export interface ClaimRequest {
   incidentDate: string;
@@ -26,10 +22,7 @@ export type ClaimResponse = {
 export class ClaimsApi {
   private readonly baseUrl = "http://localhost:8090";
 
-  constructor(
-    private readonly request: APIRequestContext,
-    private readonly context: BrowserContext,
-  ) {}
+  constructor(private readonly request: APIRequestContext) {}
 
   async login(email: string, password: string): Promise<APIResponse> {
     return this.request.post(`${this.baseUrl}/api/auth/login`, {
@@ -38,7 +31,7 @@ export class ClaimsApi {
   }
 
   async submitClaim(claim: Partial<ClaimRequest>): Promise<APIResponse> {
-    const cookies = await this.context.cookies();
+    const cookies = (await this.request.storageState()).cookies;
     const csrfCookie = cookies.find((cookie) => cookie.name === "XSRF-TOKEN");
 
     return this.request.post(`${this.baseUrl}/api/claims`, {
